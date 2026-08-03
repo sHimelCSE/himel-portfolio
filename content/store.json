@@ -1,0 +1,401 @@
+{
+  "site": {
+    "name": "MD. SHAHIDUZZAMAN",
+    "title": "Full Stack Shopify Developer",
+    "tagline": "Building High-Performing, Conversion-Focused Shopify & Web Solutions",
+    "email": "shahiduzzaman.mail@gmail.com",
+    "phone": "+880 1767-097447",
+    "address": "South Basabo, Sabujbagh, Dhaka-1214, Bangladesh",
+    "availability": "Open for freelance, contract, and full-time Shopify developer positions.",
+    "resumeUrl": "/resume.pdf",
+    "stats": {
+      "projects": "50+ Projects Completed",
+      "liquid": "Liquid & Theme Customization",
+      "figma": "Figma to Shopify Expert"
+    },
+    "heroImageUrl": "https://www.techasoft.com/uploads/SHOPIFY_DEVELOPMENT_COMPANY_IN_BANGALORE17.jpg"
+  },
+  "navLinks": [
+    {
+      "href": "/",
+      "label": "Home"
+    },
+    {
+      "href": "/about",
+      "label": "About"
+    },
+    {
+      "href": "/services",
+      "label": "Services"
+    },
+    {
+      "href": "/projects",
+      "label": "Projects"
+    },
+    {
+      "href": "/blog",
+      "label": "Blog"
+    },
+    {
+      "href": "/contact",
+      "label": "Contact"
+    }
+  ],
+  "services": [
+    {
+      "id": "shopify-theme",
+      "icon": "🛒",
+      "title": "Custom Shopify Theme Development & Customization",
+      "description": "Tailored Shopify stores built on modern 2.0 themes with custom Liquid sections.",
+      "bullets": [
+        "Custom section & block creation using Shopify Liquid.",
+        "Tailored store setups on Dawn and modern 2.0 themes.",
+        "Variant option customization and product page enhancements."
+      ]
+    },
+    {
+      "id": "figma-conversion",
+      "icon": "🎨",
+      "title": "Figma to Shopify / WordPress Conversion",
+      "description": "Pixel-perfect design implementation from Figma or Adobe XD to live stores.",
+      "bullets": [
+        "Pixel-perfect conversion of Figma/Adobe XD designs into fully responsive Shopify or WordPress sites.",
+        "Mobile-first responsive optimization using CSS3 and JS."
+      ]
+    },
+    {
+      "id": "performance",
+      "icon": "⚡",
+      "title": "Store Speed & Performance Optimization",
+      "description": "Faster stores that convert better with optimized Liquid and assets.",
+      "bullets": [
+        "Theme liquid code cleanup and asset optimization.",
+        "Improving core web vitals and mobile conversion rates."
+      ]
+    },
+    {
+      "id": "wordpress",
+      "icon": "🌐",
+      "title": "WordPress & Web Development",
+      "description": "Full-stack web development with WordPress, PHP, Laravel, and MySQL.",
+      "bullets": [
+        "Full website creation, plugin setup, maintenance, and bug fixing.",
+        "Custom PHP, Laravel, and MySQL database integration."
+      ]
+    },
+    {
+      "id": "maintenance",
+      "icon": "🔧",
+      "title": "Website Maintenance, SEO & Support",
+      "description": "Ongoing support, content updates, and SEO optimization for your store.",
+      "bullets": [
+        "Regular content updates, product uploads, bug troubleshooting, and SEO meta setups.",
+        "Ongoing client support and communication."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "gforce",
+      "name": "G-Force Grip Technology",
+      "description": "11-page custom design based on reference.",
+      "url": "https://gforcegrips.com/",
+      "category": "advanced",
+      "imageUrl": "https://prnt.sc/kFITEdL4ED9O"
+    },
+    {
+      "id": "oneehide",
+      "name": "ONEEHIDE",
+      "description": "Custom design & functional implementation.",
+      "url": "https://oneehide.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "rima",
+      "name": "Rima Atalier",
+      "description": "Designed on DAWN theme.",
+      "url": "https://rimaatalier.com/",
+      "category": "advanced",
+      "password": "admin"
+    },
+    {
+      "id": "tennis",
+      "name": "Tennis Cube",
+      "description": "Custom design & implementation.",
+      "url": "https://tenniscube.shop/",
+      "category": "advanced",
+      "password": "ilovetennis"
+    },
+    {
+      "id": "tunz",
+      "name": "Tunz: Travel eSIM",
+      "description": "Figma to Shopify design.",
+      "url": "https://shop.tunz.io/",
+      "category": "advanced"
+    },
+    {
+      "id": "goodfriends",
+      "name": "Good Friends",
+      "description": "Printify print-on-demand store.",
+      "url": "https://everybodyneedsgoodfriends.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "roohoo",
+      "name": "Roohoo Nutrition",
+      "description": "Custom design & functionality.",
+      "url": "https://www.roohoonutrition.co.uk/",
+      "category": "advanced"
+    },
+    {
+      "id": "cyodor",
+      "name": "Cyodor",
+      "description": "Built from Figma design.",
+      "url": "https://cyodor.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "prest",
+      "name": "Prest",
+      "description": "Built from Figma design.",
+      "url": "https://mcubb0-j1.myshopify.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "counting",
+      "name": "Counting Macros",
+      "description": "Custom setup.",
+      "url": "https://counting-macros.myshopify.com/",
+      "category": "advanced",
+      "password": "admin",
+      "passwordNote": "Area code: 10001"
+    },
+    {
+      "id": "newhomes",
+      "name": "New Homes Flooring",
+      "description": "E-commerce store build.",
+      "url": "https://newhomesflooring.co.uk/",
+      "category": "advanced"
+    },
+    {
+      "id": "paradise",
+      "name": "Paradise Gold",
+      "description": "E-commerce store build.",
+      "url": "https://paradisegold.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "santa",
+      "name": "Santa Maura Spice",
+      "description": "Full store design, product uploads & page maintenance.",
+      "url": "https://www.santamauraspice.com/",
+      "category": "advanced"
+    },
+    {
+      "id": "abaya",
+      "name": "Abaya.Birdy",
+      "description": "Custom product variant options & design.",
+      "url": "https://abaya-birdy.myshopify.com/",
+      "category": "advanced",
+      "password": "admin"
+    },
+    {
+      "id": "meterra",
+      "name": "Meterra Atelier",
+      "description": "Shopify e-commerce store.",
+      "url": "https://u-create.shop/",
+      "category": "other"
+    },
+    {
+      "id": "offscreen",
+      "name": "Off The Screens",
+      "description": "Shopify e-commerce store.",
+      "url": "https://offthescreens.ca/",
+      "category": "other"
+    },
+    {
+      "id": "ladorez",
+      "name": "L'adorez",
+      "description": "Shopify e-commerce store.",
+      "url": "https://ladorez.com/",
+      "category": "other"
+    },
+    {
+      "id": "solution",
+      "name": "The Solution",
+      "description": "Shopify e-commerce store.",
+      "url": "https://thesolutionsupplements.com/",
+      "category": "other"
+    },
+    {
+      "id": "purerest",
+      "name": "Purerest Organic",
+      "description": "Shopify e-commerce store.",
+      "url": "https://jfqyye-se.myshopify.com/",
+      "category": "other"
+    },
+    {
+      "id": "glowth",
+      "name": "GLOWTH",
+      "description": "Shopify wellness store.",
+      "url": "https://www.glowthwellness.com",
+      "category": "other"
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": "liquid-sections",
+      "title": "How to Customize Shopify Liquid Sections for Higher Conversions",
+      "excerpt": "Learn how to build flexible, conversion-focused Liquid sections that drive sales and improve user experience.",
+      "category": "Shopify Dev",
+      "readTime": "5 min",
+      "date": "Jan 15, 2026"
+    },
+    {
+      "id": "figma-shopify",
+      "title": "Step-by-Step Guide: Converting Figma Designs into Responsive Shopify Themes",
+      "excerpt": "A practical workflow for translating Figma designs into pixel-perfect, mobile-first Shopify themes.",
+      "category": "Frontend",
+      "readTime": "7 min",
+      "date": "Jan 8, 2026"
+    },
+    {
+      "id": "speed-optimization",
+      "title": "Essential Shopify Speed Optimization Techniques for 2026",
+      "excerpt": "Boost your store's performance with proven Liquid cleanup, asset optimization, and Core Web Vitals strategies.",
+      "category": "E-Commerce",
+      "readTime": "4 min",
+      "date": "Dec 28, 2025"
+    },
+    {
+      "id": "theme-2-0",
+      "title": "Why Shopify Liquid Theme 2.0 is a Game Changer for Online Stores",
+      "excerpt": "Discover how Theme 2.0 sections, blocks, and app blocks revolutionize store customization and merchant flexibility.",
+      "category": "Tutorials",
+      "readTime": "6 min",
+      "date": "Dec 12, 2025"
+    }
+  ],
+  "blogCategories": [
+    "All",
+    "Shopify Dev",
+    "Frontend",
+    "E-Commerce",
+    "Tutorials"
+  ],
+  "about": {
+    "professionalSummary": "Full Stack Shopify Developer with 1+ years of experience in developing, customizing, and optimizing Shopify eCommerce stores. Skilled in Shopify Liquid, HTML, CSS, JavaScript, PHP, Laravel, AJAX, MySQL, and React with expertise in theme customization, custom section development, app integration, and performance optimization.\n\nExperienced in converting Figma designs into responsive, user-friendly, and conversion-focused Shopify stores using CSS3. Strong problem-solving abilities with hands-on experience in bug fixing, troubleshooting, and delivering scalable eCommerce solutions tailored to business requirements.",
+    "careerHistory": [
+      {
+        "title": "Web Developer",
+        "company": "FB International BD",
+        "period": "Apr 2025 – Present",
+        "location": "Banasree, Dhaka",
+        "responsibilities": [
+          "Developing and managing WordPress websites.",
+          "Building Shopify-based e-commerce sites.",
+          "Handling client communications and support via messages."
+        ]
+      },
+      {
+        "title": "Web Developer",
+        "company": "Softech (BMC Group)",
+        "period": "Aug 2023 – Mar 2025",
+        "location": "Vatara, Dhaka"
+      },
+      {
+        "title": "Sub-Editor",
+        "company": "Daily Ajkaler Khobor",
+        "period": "June 2021 – July 2023",
+        "location": "Banani, Dhaka"
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.Sc. in Computer Science & Engineering",
+        "year": "2020",
+        "institution": "Daffodil International University",
+        "location": "Dhaka",
+        "gpa": "CGPA: 2.92 / 4.00"
+      },
+      {
+        "degree": "H.S.C in Science",
+        "year": "2014",
+        "institution": "Rajshahi Model School and College",
+        "location": "Rajshahi",
+        "gpa": "GPA: 4.10 / 5.00"
+      },
+      {
+        "degree": "S.S.C in Science",
+        "year": "2012",
+        "institution": "Arani Monomohini High School",
+        "location": "Rajshahi",
+        "gpa": "GPA: 4.88 / 5.00"
+      }
+    ],
+    "skillGroups": [
+      {
+        "category": "Frontend & CMS",
+        "skills": [
+          "Shopify Liquid",
+          "HTML5",
+          "CSS3",
+          "JavaScript",
+          "jQuery",
+          "React",
+          "WordPress Development"
+        ]
+      },
+      {
+        "category": "Backend & DB",
+        "skills": [
+          "PHP",
+          "Laravel",
+          "OOP",
+          "AJAX",
+          "MySQL"
+        ]
+      },
+      {
+        "category": "Tools & Workflow",
+        "skills": [
+          "Git",
+          "GitHub",
+          "Photoshop",
+          "Illustrator",
+          "Basic UX/UI",
+          "MS Office"
+        ]
+      },
+      {
+        "category": "Other",
+        "skills": [
+          "SEO",
+          "Website Maintenance",
+          "Content Upload",
+          "Client Communication & IT Support"
+        ]
+      },
+      {
+        "category": "Languages",
+        "skills": [
+          "Bangla (Native)",
+          "English (Good command in writing and speaking)"
+        ]
+      }
+    ]
+  },
+  "messages": [
+    {
+      "name": "Chiquita Heath",
+      "email": "gerimel@mailinator.com",
+      "service": "wordpress",
+      "subject": "Fugiat inventore omn",
+      "budget": "Quis facilis quo ill",
+      "message": "Similique dolor ipsu",
+      "id": "msg-1785754749966",
+      "createdAt": "2026-08-03T10:59:09.966Z",
+      "read": false
+    }
+  ]
+}
