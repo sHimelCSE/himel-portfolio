@@ -16,8 +16,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "MD. SHAHIDUZZAMAN | Full Stack Shopify Developer",
-    template: "%s | MD. SHAHIDUZZAMAN",
+    default: "MD. SHAHIDUZZAMAN HIMEL | Full Stack Shopify Developer",
+    template: "%s | MD. SHAHIDUZZAMAN HIMEL",
   },
   description:
     "Full Stack Shopify & Web Developer with 1+ years of experience and 50+ completed e-commerce projects.",
