@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
   description:
     "Full Stack Shopify & Web Developer with 1+ years of experience and 50+ completed e-commerce projects.",
+  verification: {
+    google: "lckpvS4U3i_DIG-uJPzQdq4_oKQgNv_NFgdVfRYhSnk",
+  },
 };
 
 export default function RootLayout({
