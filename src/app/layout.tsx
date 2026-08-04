@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   verification: {
     google: "lckpvS4U3i_DIG-uJPzQdq4_oKQgNv_NFgdVfRYhSnk",
   },
+  other: {
+    developer: "Shahiduzzaman Himel",
+    "developer-contact": "shahiduzzaman.mail@gmail.com",
+  },
 };
 
 export default function RootLayout({
