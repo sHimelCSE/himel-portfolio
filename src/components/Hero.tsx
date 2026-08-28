@@ -46,7 +46,7 @@ export default function Hero({ site }: { site: SiteConfig }) {
             <span className="font-semibold text-emerald-600 dark:text-emerald-400">
               {siteName}
             </span>{" "}
-            — Full Stack Shopify & Web Developer with 1+ years of experience
+            — Full Stack Shopify & Web Developer with 2+ years of experience
             and 50+ completed e-commerce projects.
           </p>
 
