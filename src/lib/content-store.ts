@@ -32,20 +32,7 @@ async function ensureStore(): Promise<ContentStore> {
     return initialContent;
   }
 
-  if (process.env.VERCEL) {
-    throw new Error(
-      "Content storage is not configured. Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN."
-    );
-  }
-
-  try {
-    return await getInitialContent();
-  } catch {
-    const defaults = getDefaultContent();
-    await fs.mkdir(path.dirname(STORE_PATH), { recursive: true });
-    await fs.writeFile(STORE_PATH, JSON.stringify(defaults, null, 2), "utf-8");
-    return defaults;
-  }
+  return getInitialContent();
 }
 
 async function writeStore(data: ContentStore): Promise<void> {
