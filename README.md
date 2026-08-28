@@ -1,3 +1,10 @@
+# vercel command
+
+npx vercel link
+npx vercel env pull .env.development.local
+
+npx vercel --prod
+
 # MD. SHAHIDUZZAMAN — Portfolio Website
 
 A modern, high-converting multi-page developer portfolio built with **Next.js 16**, **Tailwind CSS**, and **TypeScript**. Optimized for deployment on **Vercel**.

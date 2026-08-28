@@ -8,8 +8,14 @@ const STORE_PATH = path.join(process.cwd(), "content", "store.json");
 const STORE_KEY = "portfolio:content";
 
 function getRedis(): Redis | null {
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  const url =
+    process.env.UPSTASH_REDIS_REST_URL ??
+    process.env.STORAGE_REST_API_URL ??
+    process.env.STORAGE_URL;
+  const token =
+    process.env.UPSTASH_REDIS_REST_TOKEN ??
+    process.env.STORAGE_REST_API_TOKEN ??
+    process.env.STORAGE_TOKEN;
   return url && token ? new Redis({ url, token }) : null;
 }
 
