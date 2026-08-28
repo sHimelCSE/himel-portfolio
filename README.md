@@ -46,7 +46,24 @@ Follow the prompts. Vercel auto-detects Next.js.
 1. Push this repo to GitHub
 2. Go to [vercel.com/new](https://vercel.com/new)
 3. Import the repository
-4. Click **Deploy** (no extra config needed)
+4. Add the required environment variables below, then click **Deploy**.
+
+### Required environment variables
+
+The admin panel stores content in Upstash Redis so edits and contact messages
+survive Vercel function restarts. Create an Upstash Redis database from the
+Vercel Marketplace and add these variables to Development, Preview, and
+Production:
+
+```text
+AUTH_SECRET=<long-random-secret>
+ADMIN_PASSWORD=<strong-admin-password>
+UPSTASH_REDIS_REST_URL=<database-rest-url>
+UPSTASH_REDIS_REST_TOKEN=<database-rest-token>
+```
+
+Without the Redis variables, local development uses `content/store.json`; a
+Vercel deployment intentionally fails rather than silently losing admin edits.
 
 ### Option 3: One-click
 

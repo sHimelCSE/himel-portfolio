@@ -2,9 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
-import { services } from "@/data/services";
+import type { Service } from "@/lib/types";
 
-export default function ContactForm() {
+export default function ContactForm({ services }: { services: Service[] }) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

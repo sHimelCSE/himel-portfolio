@@ -1,14 +1,45 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { Redis } from "@upstash/redis";
 import type { ContentStore, ContentSection } from "./types";
 import { getDefaultContent } from "./defaults";
 
 const STORE_PATH = path.join(process.cwd(), "content", "store.json");
+const STORE_KEY = "portfolio:content";
 
-async function ensureStore(): Promise<ContentStore> {
+function getRedis(): Redis | null {
+  const url = process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+  return url && token ? new Redis({ url, token }) : null;
+}
+
+async function getInitialContent(): Promise<ContentStore> {
   try {
     const raw = await fs.readFile(STORE_PATH, "utf-8");
     return JSON.parse(raw) as ContentStore;
+  } catch {
+    return getDefaultContent();
+  }
+}
+
+async function ensureStore(): Promise<ContentStore> {
+  const redis = getRedis();
+  if (redis) {
+    const stored = await redis.get<ContentStore>(STORE_KEY);
+    if (stored) return stored;
+    const initialContent = await getInitialContent();
+    await redis.set(STORE_KEY, initialContent);
+    return initialContent;
+  }
+
+  if (process.env.VERCEL) {
+    throw new Error(
+      "Content storage is not configured. Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN."
+    );
+  }
+
+  try {
+    return await getInitialContent();
   } catch {
     const defaults = getDefaultContent();
     await fs.mkdir(path.dirname(STORE_PATH), { recursive: true });
@@ -18,6 +49,18 @@ async function ensureStore(): Promise<ContentStore> {
 }
 
 async function writeStore(data: ContentStore): Promise<void> {
+  const redis = getRedis();
+  if (redis) {
+    await redis.set(STORE_KEY, data);
+    return;
+  }
+
+  if (process.env.VERCEL) {
+    throw new Error(
+      "Content storage is not configured. Set UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN."
+    );
+  }
+
   await fs.mkdir(path.dirname(STORE_PATH), { recursive: true });
   await fs.writeFile(STORE_PATH, JSON.stringify(data, null, 2), "utf-8");
 }

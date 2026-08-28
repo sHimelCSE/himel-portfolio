@@ -5,7 +5,10 @@ const COOKIE_NAME = "admin-session";
 const SESSION_DURATION = 60 * 60 * 24 * 7; // 7 days
 
 function getSecret() {
-  const secret = process.env.AUTH_SECRET ?? "dev-secret-change-in-production";
+  const secret = process.env.AUTH_SECRET;
+  if (!secret) {
+    throw new Error("AUTH_SECRET is required");
+  }
   return new TextEncoder().encode(secret);
 }
 
@@ -27,8 +30,8 @@ export async function verifySession(token: string): Promise<boolean> {
 }
 
 export function verifyPassword(password: string): boolean {
-  const adminPassword = process.env.ADMIN_PASSWORD ?? "admin123";
-  return password === adminPassword;
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  return Boolean(adminPassword) && password === adminPassword;
 }
 
 export async function setSessionCookie(token: string) {

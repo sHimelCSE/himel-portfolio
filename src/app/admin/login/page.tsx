@@ -80,9 +80,6 @@ function LoginForm() {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-xs text-slate-600">
-          Default password: admin123 (change via ADMIN_PASSWORD in .env.local)
-        </p>
       </div>
     </div>
   );

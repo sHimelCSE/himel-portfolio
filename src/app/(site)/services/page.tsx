@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ServiceCard from "@/components/ServiceCard";
 import CTABanner from "@/components/CTABanner";
-import { services } from "@/data/services";
+import { getContent } from "@/lib/content-store";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     "Shopify theme development, Figma to Shopify conversion, performance optimization, WordPress development, and ongoing maintenance services.",
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const { services } = await getContent();
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">

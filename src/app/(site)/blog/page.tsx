@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BlogGrid from "@/components/BlogGrid";
+import { getContent } from "@/lib/content-store";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -7,7 +8,8 @@ export const metadata: Metadata = {
     "Articles on Shopify Liquid development, Figma to Shopify conversion, speed optimization, and Theme 2.0.",
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const { blogPosts, blogCategories } = await getContent();
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
@@ -23,7 +25,7 @@ export default function BlogPage() {
       </div>
 
       <div className="mt-12">
-        <BlogGrid />
+        <BlogGrid posts={blogPosts} categories={blogCategories} />
       </div>
     </div>
   );

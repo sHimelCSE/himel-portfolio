@@ -63,6 +63,9 @@ export default function AdminAboutPage() {
         <h2 className="mb-4 text-lg font-semibold text-white">Career history</h2>
         {about.careerHistory.map((item, index) => (
           <div key={`${item.title}-${index}`} className="mb-4 rounded-xl border border-slate-800 p-4">
+            <div className="mb-4 flex justify-end">
+              <button type="button" onClick={() => setAbout({ ...about, careerHistory: about.careerHistory.filter((_, itemIndex) => itemIndex !== index) })} className="text-sm text-red-400">Remove</button>
+            </div>
             <div className="grid gap-4 lg:grid-cols-2">
               <FormField label="Title">
                 <input value={item.title} onChange={(e) => setAbout({ ...about, careerHistory: about.careerHistory.map((entry, entryIndex) => entryIndex === index ? { ...entry, title: e.target.value } : entry) })} className={inputClass} />
@@ -93,6 +96,9 @@ export default function AdminAboutPage() {
         <h2 className="mb-4 text-lg font-semibold text-white">Education</h2>
         {about.education.map((item, index) => (
           <div key={`${item.degree}-${index}`} className="mb-4 rounded-xl border border-slate-800 p-4">
+            <div className="mb-4 flex justify-end">
+              <button type="button" onClick={() => setAbout({ ...about, education: about.education.filter((_, itemIndex) => itemIndex !== index) })} className="text-sm text-red-400">Remove</button>
+            </div>
             <div className="grid gap-4 lg:grid-cols-2">
               <FormField label="Degree">
                 <input value={item.degree} onChange={(e) => setAbout({ ...about, education: about.education.map((entry, entryIndex) => entryIndex === index ? { ...entry, degree: e.target.value } : entry) })} className={inputClass} />
@@ -121,6 +127,9 @@ export default function AdminAboutPage() {
         <h2 className="mb-4 text-lg font-semibold text-white">Skill groups</h2>
         {about.skillGroups.map((group, index) => (
           <div key={`${group.category}-${index}`} className="mb-4 rounded-xl border border-slate-800 p-4">
+            <div className="mb-4 flex justify-end">
+              <button type="button" onClick={() => setAbout({ ...about, skillGroups: about.skillGroups.filter((_, itemIndex) => itemIndex !== index) })} className="text-sm text-red-400">Remove</button>
+            </div>
             <FormField label="Category">
               <input value={group.category} onChange={(e) => setAbout({ ...about, skillGroups: about.skillGroups.map((entry, entryIndex) => entryIndex === index ? { ...entry, category: e.target.value } : entry) })} className={inputClass} />
             </FormField>

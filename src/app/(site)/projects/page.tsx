@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ProjectGallery from "@/components/ProjectGallery";
 import CTABanner from "@/components/CTABanner";
+import { getContent } from "@/lib/content-store";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
     "Portfolio of 50+ Shopify stores including G-Force Grip, ONEEHIDE, Rima Atalier, Tennis Cube, and more.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const { projects } = await getContent();
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
@@ -24,7 +26,7 @@ export default function ProjectsPage() {
       </div>
 
       <div className="mt-12">
-        <ProjectGallery />
+        <ProjectGallery projects={projects} />
       </div>
 
       <div className="mt-16">

@@ -2,38 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import { navLinks as defaultNavLinks, siteConfig as defaultSiteConfig } from "@/data/site";
 import type { NavLink, SiteConfig } from "@/lib/types";
 
-export default function Header() {
+export default function Header({ site, navLinks }: { site: SiteConfig; navLinks: NavLink[] }) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [site, setSite] = useState<SiteConfig>(defaultSiteConfig);
-  const [navLinks, setNavLinks] = useState<NavLink[]>(defaultNavLinks);
-
-  useEffect(() => {
-    async function loadContent() {
-      try {
-        const res = await fetch("/api/admin/content");
-        const data = await res.json();
-        if (data?.data) {
-          setSite(data.data.site ?? defaultSiteConfig);
-          setNavLinks(
-            Array.isArray(data.data.navLinks) && data.data.navLinks.length > 0
-              ? data.data.navLinks
-              : defaultNavLinks
-          );
-        }
-      } catch {
-        // fall back to defaults
-      }
-    }
-
-    void loadContent();
-  }, []);
 
   const siteName = site.name || "MD. SHAHIDUZZAMAN";
   const siteTitle = site.title || "Full Stack Shopify Developer";

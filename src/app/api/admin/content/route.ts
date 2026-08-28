@@ -13,6 +13,16 @@ const REVALIDATE_MAP: Partial<Record<ContentSection, string[]>> = {
   navLinks: ["/"],
 };
 
+const EDITABLE_SECTIONS: ContentSection[] = [
+  "site",
+  "navLinks",
+  "services",
+  "projects",
+  "blogPosts",
+  "blogCategories",
+  "about",
+];
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const section = searchParams.get("section") as ContentSection | null;
@@ -20,17 +30,7 @@ export async function GET(request: Request) {
   const content = await getContent();
 
   if (section) {
-    const allowedSections: ContentSection[] = [
-      "site",
-      "navLinks",
-      "services",
-      "projects",
-      "blogPosts",
-      "blogCategories",
-      "about",
-    ];
-
-    if (!allowedSections.includes(section as ContentSection)) {
+    if (!EDITABLE_SECTIONS.includes(section)) {
       return NextResponse.json({ error: "Invalid section" }, { status: 400 });
     }
 
@@ -44,7 +44,7 @@ export async function PUT(request: Request) {
   const body = await request.json();
   const { section, data } = body as { section: ContentSection; data: unknown };
 
-  if (!section || data === undefined) {
+  if (!section || data === undefined || !EDITABLE_SECTIONS.includes(section)) {
     return NextResponse.json(
       { error: "section and data are required" },
       { status: 400 }

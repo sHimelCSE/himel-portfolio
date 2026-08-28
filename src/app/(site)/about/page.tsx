@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import Timeline from "@/components/Timeline";
-import {
-  professionalSummary,
-  careerHistory,
-  education,
-  skillGroups,
-} from "@/data/about";
+import { getContent } from "@/lib/content-store";
 
 export const metadata: Metadata = {
   title: "About",
@@ -13,7 +8,9 @@ export const metadata: Metadata = {
     "Learn about MD. SHAHIDUZZAMAN — Full Stack Shopify Developer with expertise in Liquid, theme customization, and e-commerce solutions.",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { about } = await getContent();
+  const { professionalSummary, careerHistory, education, skillGroups } = about;
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">

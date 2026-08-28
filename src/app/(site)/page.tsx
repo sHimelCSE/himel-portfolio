@@ -4,16 +4,16 @@ import Hero from "@/components/Hero";
 import ServiceCard from "@/components/ServiceCard";
 import ProjectCard from "@/components/ProjectCard";
 import CTABanner from "@/components/CTABanner";
-import { services } from "@/data/services";
-import { projects } from "@/data/projects";
+import { getContent } from "@/lib/content-store";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { services, projects, site } = await getContent();
   const featuredServices = services.slice(0, 3);
   const featuredProjects = projects.filter((p) => p.category === "advanced").slice(0, 4);
 
   return (
     <>
-      <Hero />
+      <Hero site={site} />
 
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="mb-10 flex items-end justify-between">

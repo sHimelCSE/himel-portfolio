@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { Search } from "lucide-react";
 import BlogCard from "./BlogCard";
-import { blogPosts, blogCategories } from "@/data/blog";
+import type { BlogPost } from "@/lib/types";
 
-export default function BlogGrid() {
+export default function BlogGrid({ posts, categories }: { posts: BlogPost[]; categories: string[] }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
 
-  const filtered = blogPosts.filter((post) => {
+  const filtered = posts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(search.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(search.toLowerCase());
@@ -35,7 +35,7 @@ export default function BlogGrid() {
           />
         </div>
         <div className="flex flex-wrap gap-2">
-          {blogCategories.map((cat) => (
+          {["All", ...categories].map((cat) => (
             <button
               key={cat}
               onClick={() => setCategory(cat)}

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import { siteConfig } from "@/data/site";
+import { getContent } from "@/lib/content-store";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -9,32 +9,14 @@ export const metadata: Metadata = {
     "Get in touch with MD. SHAHIDUZZAMAN for Shopify development, theme customization, and web projects.",
 };
 
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: siteConfig.email,
-    href: `mailto:${siteConfig.email}`,
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: siteConfig.phone,
-    href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
-  },
-  {
-    icon: MapPin,
-    label: "Address",
-    value: siteConfig.address,
-  },
-  {
-    icon: Clock,
-    label: "Availability",
-    value: siteConfig.availability,
-  },
-];
-
-export default function ContactPage() {
+export default async function ContactPage() {
+  const { site, services } = await getContent();
+  const contactInfo = [
+    { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
+    { icon: Phone, label: "Phone", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
+    { icon: MapPin, label: "Address", value: site.address },
+    { icon: Clock, label: "Availability", value: site.availability },
+  ];
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
@@ -92,7 +74,7 @@ export default function ContactPage() {
             Send a Message
           </h2>
           <div className="mt-6">
-            <ContactForm />
+            <ContactForm services={services} />
           </div>
         </div>
       </div>

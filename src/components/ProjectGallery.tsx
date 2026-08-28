@@ -2,13 +2,10 @@
 
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import {
-  projects,
-  projectFilters,
-  type FilterId,
-} from "@/data/projects";
+import { projectFilters, type FilterId } from "@/data/projects";
+import type { Project } from "@/lib/types";
 
-export default function ProjectGallery() {
+export default function ProjectGallery({ projects }: { projects: Project[] }) {
   const [activeFilter, setActiveFilter] = useState<FilterId>("all");
 
   const filtered =

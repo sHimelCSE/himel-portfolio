@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { FormField, inputClass, textareaClass } from "@/components/admin/FormField";
 import SaveButton from "@/components/admin/SaveButton";
 import { adminFetch } from "@/lib/admin-api";
-import type { SiteConfig } from "@/lib/types";
+import type { NavLink, SiteConfig } from "@/lib/types";
 
 const emptySite: SiteConfig = {
   name: "",
@@ -26,6 +26,7 @@ const emptySite: SiteConfig = {
 
 export default function AdminSitePage() {
   const [site, setSite] = useState<SiteConfig>(emptySite);
+  const [navLinks, setNavLinks] = useState<NavLink[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -33,6 +34,8 @@ export default function AdminSitePage() {
       try {
         const res = await adminFetch<{ data: SiteConfig }>('/api/admin/content?section=site');
         setSite(res.data);
+        const navRes = await adminFetch<{ data: NavLink[] }>('/api/admin/content?section=navLinks');
+        setNavLinks(navRes.data);
       } catch {
         setSite(emptySite);
       } finally {
@@ -47,6 +50,10 @@ export default function AdminSitePage() {
     await adminFetch('/api/admin/content', {
       method: 'PUT',
       body: JSON.stringify({ section: 'site', data: site }),
+    });
+    await adminFetch('/api/admin/content', {
+      method: 'PUT',
+      body: JSON.stringify({ section: 'navLinks', data: navLinks }),
     });
   };
 
@@ -104,6 +111,29 @@ export default function AdminSitePage() {
         <FormField label="Figma stat">
           <input value={site.stats.figma} onChange={(e) => setSite({ ...site, stats: { ...site.stats, figma: e.target.value } })} className={inputClass} />
         </FormField>
+      </div>
+
+      <div className="rounded-2xl border border-slate-800 bg-slate-950/70 p-6">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <div>
+            <h2 className="text-lg font-semibold text-white">Navigation links</h2>
+            <p className="mt-1 text-sm text-slate-400">Control the links shown in the header and footer.</p>
+          </div>
+          <button type="button" onClick={() => setNavLinks((prev) => [...prev, { href: '/', label: '' }])} className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200 hover:border-emerald-500">Add link</button>
+        </div>
+        <div className="space-y-4">
+          {navLinks.map((link, index) => (
+            <div key={`${link.href}-${index}`} className="grid gap-4 sm:grid-cols-[1fr_1fr_auto]">
+              <FormField label="Label">
+                <input value={link.label} onChange={(e) => setNavLinks((prev) => prev.map((item, itemIndex) => itemIndex === index ? { ...item, label: e.target.value } : item))} className={inputClass} />
+              </FormField>
+              <FormField label="Path">
+                <input value={link.href} onChange={(e) => setNavLinks((prev) => prev.map((item, itemIndex) => itemIndex === index ? { ...item, href: e.target.value } : item))} className={inputClass} />
+              </FormField>
+              <button type="button" onClick={() => setNavLinks((prev) => prev.filter((_, itemIndex) => itemIndex !== index))} className="self-end pb-2 text-sm text-red-400">Remove</button>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

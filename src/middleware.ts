@@ -35,13 +35,6 @@ export async function middleware(request: NextRequest) {
   }
 
   if (pathname.startsWith("/api/admin")) {
-    const isPublicContentRead =
-      pathname === "/api/admin/content" && request.method === "GET";
-
-    if (isPublicContentRead) {
-      return NextResponse.next();
-    }
-
     const token = request.cookies.get(COOKIE_NAME)?.value;
     if (!token || !(await verifyToken(token))) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

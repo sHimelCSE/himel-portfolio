@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ArrowRight,
   Download,
@@ -9,29 +9,11 @@ import {
   Layers,
   Sparkles,
 } from "lucide-react";
-import { siteConfig as defaultSiteConfig } from "@/data/site";
 import type { SiteConfig } from "@/lib/types";
 
 const badgeIcons = [Briefcase, Layers, Sparkles];
 
-export default function Hero() {
-  const [site, setSite] = useState<SiteConfig>(defaultSiteConfig);
-
-  useEffect(() => {
-    async function loadSite() {
-      try {
-        const res = await fetch("/api/admin/content");
-        const data = await res.json();
-        if (data?.data) {
-          setSite(data.data.site ?? defaultSiteConfig);
-        }
-      } catch {
-        // fall back to defaults
-      }
-    }
-
-    void loadSite();
-  }, []);
+export default function Hero({ site }: { site: SiteConfig }) {
 
   const siteName = site.name || "MD. SHAHIDUZZAMAN";
   const tagline = site.tagline || "Building High-Performing, Conversion-Focused Shopify & Web Solutions";
