@@ -57,7 +57,7 @@ Production:
 
 ```text
 AUTH_SECRET=<long-random-secret>
-ADMIN_PASSWORD=<strong-admin-password>
+ADMIN_PASSWORD=<strong-admin-password> # Optional; defaults to Admin123 for the demo
 UPSTASH_REDIS_REST_URL=<database-rest-url>
 UPSTASH_REDIS_REST_TOKEN=<database-rest-token>
 ```
