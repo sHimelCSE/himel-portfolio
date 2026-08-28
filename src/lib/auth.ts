@@ -5,10 +5,7 @@ const COOKIE_NAME = "admin-session";
 const SESSION_DURATION = 60 * 60 * 24 * 7; // 7 days
 
 function getSecret() {
-  const secret = process.env.AUTH_SECRET;
-  if (!secret) {
-    throw new Error("AUTH_SECRET is required");
-  }
+  const secret = process.env.AUTH_SECRET ?? "dev-secret-change-in-production";
   return new TextEncoder().encode(secret);
 }
 

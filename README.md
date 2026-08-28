@@ -56,7 +56,7 @@ Vercel Marketplace and add these variables to Development, Preview, and
 Production:
 
 ```text
-AUTH_SECRET=<long-random-secret>
+AUTH_SECRET=<long-random-secret> # Recommended; demo fallback is used when omitted
 ADMIN_PASSWORD=<strong-admin-password> # Optional; defaults to Admin123 for the demo
 UPSTASH_REDIS_REST_URL=<database-rest-url>
 UPSTASH_REDIS_REST_TOKEN=<database-rest-token>
